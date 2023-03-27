@@ -66,6 +66,7 @@ a:hover{
 	max-width:1000px;
 	margin-right:auto;
 	margin-left:auto;
+	margin-bottom: 1em;
 }
 
 
@@ -296,8 +297,8 @@ a:hover{
 
 
 .figure.product {
-	border-radius: 0.7em;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+/*	border-radius: 0.7em;*/
+/*	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);*/
 	overflow: hidden;
 }
 
