@@ -1,0 +1,33 @@
+[
+	{
+		"name":"Evie Wang",
+		"type":"Student",
+		"email":"evie@gmail.com",
+		"classes":[620,635,615]
+	},
+	
+	{
+		"name":"Bing Wu",
+		"type":"Singer",
+		"email":"bing@gmail.com",
+		"classes":[620,635,615]
+	},
+	{
+		"name":"Eva Liu",
+		"type":"Teacher",
+		"email":"eva@gmail.com",
+		"classes":[620,635,615]
+	},
+	{
+		"name":"Zhi Zhong",
+		"type":"Driver",
+		"email":"zhong@gmail.com",
+		"classes":[620,635,615]
+	},
+	{
+		"name":"Chloe Zhu",
+		"type":"Dancer",
+		"email":"chloe@gmail.com",
+		"classes":[620,635,615]
+	}
+]
