@@ -1,9 +1,11 @@
 
-<?php 
+ <?php 
     include_once "lib/php/functions.php";
 
     
 $product = makeQuery(makeConn(),"SELECT * FROM `giftshop` WHERE `id`=".$_GET['id'])[0];
+
+$cart_product = array_find(getCart(),function($o){return $o->id==$_GET['id'];});
 
  ?>
 
@@ -21,8 +23,8 @@ $product = makeQuery(makeConn(),"SELECT * FROM `giftshop` WHERE `id`=".$_GET['id
 
     <div class="container">
         <div class="card soft margin-top-5em">
-            <h2> You added <?= $product->name ?> to your bag. </h2>
-            <!-- <p> There are now <?= $total_count ?> <?= $product->name ?> in your bag. </p> -->
+            <h2> You added <?= $product->name ?> to your cart. </h2>
+            <p> There are now <?= $cart_product->amount?> of <?= $product->name ?> in your cart. </p>
             <div class="display-flex">
                 <div class="flex-none"><a href="products.php">Continue Shopping</a></div>
                 <div class="flex-stretch"></div>

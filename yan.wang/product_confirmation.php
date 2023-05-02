@@ -1,6 +1,6 @@
 <?php 
     include_once "lib/php/functions.php";
-    resetBag();
+    resetCart();
 ?>
 
 <!DOCTYPE html>
@@ -12,12 +12,12 @@
     
 </head>
 <body>
-    <?php include "parts/navbar.php"; ?>
+    <?php include "parts/header.php"; ?>
 
     <div class="container margin-top-5em">
         <div class="card soft">
             <h2>Thank you for your purchase</h2>
-            <p><a href="product_list.php">Continue Shopping</a></p>
+            <p><a href="products.php">Continue Shopping</a></p>
         </div>
     </div>
 </body>
