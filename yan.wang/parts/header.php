@@ -8,7 +8,7 @@
 		<nav class="flex-none nav">
 			<ul class="container display-flex">
 				<li><a href="index.php">Home</a></li>
-				<li><a href="search.php">Search</a></li>
+				<li><a href="products.php">Products</a></li>
 				<li><a href="login.php">login</a></li>
 				<li><a href="cart.php">Cart</a></li>
 			</ul>

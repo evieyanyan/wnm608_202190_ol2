@@ -1,21 +1,37 @@
+<?php
+    include_once "lib/php/functions.php";
+    include_once "parts/templates.php";
+    $bag_items = getBagItems();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cart</title>
-	<link rel="stylesheet" href="lib/css/styleguide.css">
-	<link rel="stylesheet" href="lib/css/gridsystem.css">
-	<link rel="stylesheet" href="css/storetheme.css">
-   	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
-
+    <meta charset="UTF-8">
+    <title>Bag Page</title>
+    <?php include "parts/meta.php"?>
+    
 </head>
 <body>
-	
-	<?php include "parts/header.php"; ?>
+    <?php include "parts/header.php"; ?>
 
-
-
+    <div class="container margin-top-5em">
+        <h2 style="color: var(--color-lotus);"> In your Bag </h2>
+        <div class="grid gap">
+            <div class="col-xs-12 col-md-7">
+                <div class="card soft">
+                    <?= array_reduce($bag_items, 'bagListTemplate') ?>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-5">
+                <div class="card soft flat">
+                    <?= bagTotal() ?>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
+
+

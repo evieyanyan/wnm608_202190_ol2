@@ -511,4 +511,14 @@ a:hover{
 	background-color: var(--color-main-dark);
 }
 
+.form-control {
+	
+}
 
+.card-section~.card-section {
+    border-top: 2px solid var(--color-neutral-light);
+}
+
+.card-section {
+    padding: 1em;
+}
