@@ -1,3 +1,5 @@
+<?php include_once "lib/php/functions.php";?>
+<?php include_once "parts/templates.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,9 +34,18 @@
 	</div>
 
 	<!-- product -->
-	<?php include "parts/products.php"; ?>
 
 
+<div class="container">
+		<h2>Latest T-shirts</h2>
+		<?php recommendedCategory("t-shirts");?>
+		<h2>Latest Bags</h2>
+		<?php recommendedCategory("bags");?>
+		<h2>Latest Bottles</h2>
+		<?php recommendedCategory("bottles");?>
+		<h2>Latest Towels</h2>
+		<?php recommendedCategory("towels");?>
+	</div>
 	
 
 </body>
