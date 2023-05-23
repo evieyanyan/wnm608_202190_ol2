@@ -76,6 +76,27 @@ function cartTotals(){
     HTML;
 }
 
+function cartTotal(){
+    $cart = getCartItems();
+    $cartprice = array_reduce($cart,function($r,$o){return $r+$o->total;},0);
+    $pricefixed = number_format($cartprice,2,'.','');
+    $taxfixed = number_format($cartprice*0.0725,2,'.','');
+    $taxedfixed = number_format($cartprice*1.0725,2,'.','');
+    return <<<HTML
+        <div class="card-section display-flex">
+            <div class="flex-stretch"><strong>Sub Total</strong></div>
+            <div class="flex-none">&dollar;$pricefixed</div>
+        </div>
+        <div class="card-section display-flex">
+            <div class="flex-stretch"><strong>Taxes</strong></div>
+            <div class="flex-none">&dollar;$taxfixed</div>
+        </div>
+        <div class="card-section display-flex">
+            <div class="flex-stretch"><strong>Total</strong></div>
+            <div class="flex-none">&dollar;$taxedfixed</div>
+        </div>
+    HTML;
+}
 
     function recommendedProducts($a) {
         $products = array_reduce($a, 'productListTemplate');
@@ -83,6 +104,11 @@ function cartTotals(){
             <div class="grid gap productlist">$products</div>
         HTML;
     }
+
+    function recommendedAnything($limit=3) {
+    $result = makeQuery(makeConn(), "SELECT * FROM `giftshop`  ORDER BY rand() DESC LIMIT $limit");
+        recommendedProducts($result);
+}
 
     function recommendedCategory($cat, $limit=3) {
         $result = makeQuery(makeConn(), "SELECT * FROM `giftshop` WHERE `category`= '$cat' ORDER BY `date_create` DESC LIMIT $limit");

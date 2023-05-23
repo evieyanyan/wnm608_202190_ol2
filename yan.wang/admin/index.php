@@ -9,8 +9,8 @@ include "../lib/php/functions.php";
         "category"=>"t-shirts",
         "description"=>"100% Cotton
 Classic Fit",
-        "thumbnail"=>"item5_1.jpeg,item5_2.jpeg",
-        "images"=>"item5_1.jpeg"
+        "thumbnail"=>"item5_1.jpeg",
+        "images"=>"item5_1.jpeg,item5_2.jpeg"
     ];
 
     // LOGIC
@@ -29,7 +29,7 @@ Classic Fit",
                             `description`=?,
                             `thumbnail`=?,
                             `images`=?,
-                            `date_modify`= NOW()
+                            `date_update`= NOW()
                         WHERE
                             `id`=?
                     ");
@@ -55,7 +55,7 @@ Classic Fit",
                             `thumbnail`,
                             `images`,
                             `date_create`,
-                            `date_modify`
+                            `date_update`
                         )
                         VALUES (?,?,?,?,?,?,NOW(),NOW())
                     ");

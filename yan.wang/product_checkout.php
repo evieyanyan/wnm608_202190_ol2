@@ -1,4 +1,8 @@
-<?php include_once "lib/php/functions.php";?>
+<?php include_once "lib/php/functions.php";
+include_once "parts/templates.php";
+$cart = getCartItems();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +15,29 @@
     <?php include "parts/header.php"; ?>
 
     <div class="container margin-top-5em">
-        <div class="card soft">
+        <div class="grid gap">
+
+            <div class="col-xs-12 col-md-5">
+                <div class="card soft">
+                    <h2>Item Review</h2>
+                    <div class="card-section">
+                        <?php
+                            echo array_reduce($bag, function($r, $o) {
+                                $totalfixed = number_format($o->total, 2, '.', '');
+                                return $r."<div class='display-flex'>
+                                    <div class='flex-stretch'>$o->name</div>
+                                    <div class='flex-none'>&dollar;$totalfixed</div>
+                                </div>";
+                            });
+                        ?>
+                    </div>
+                    <?= cartTotal(); ?>
+
+                </div>
+            </div>
+
+         <div class="col-xs-12 col-md-7">
+            <div class="card soft">
             <h2>Product Checkout</h2>
 
             <form action="" class="form">
@@ -45,6 +71,7 @@
                         </div>
                     </div>
                 </div>
+
                 <h3>Payment</h3>
                 <div class="form-control">
                     <label for="payment-name" class="form-label">Full Name</label>
@@ -54,6 +81,7 @@
                     <label for="" class="form-label">Card Number</label>
                     <input id="payment-number" type="text" placeholder="####-####-####-####" class="form-input">
                 </div>
+
                 <div class="form-control">
                     <div class="grid gap">
                         <div class="col-xs-12 col-md-6">
@@ -65,6 +93,7 @@
                             <input id="payment-cvv" type="text" placeholder="CVV" class="form-input">
                         </div>
                     </div>
+
                 </div>
                 <div class="form-control">
                     <label for="payment-zip" class="form-label">Zip Code</label>
@@ -74,6 +103,8 @@
                     <a href="product_confirmation.php" class="form-button">Complete Checkout</a>
                 </div>
             </form>
+            </div>
+            </div>
         </div>
     </div>
 </body>
